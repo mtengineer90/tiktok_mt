@@ -9,5 +9,8 @@ class AppStrings {
   static const String activityBNString = "Activity";
   static const String bookmarksBNString = "Bookmarks";
   static const String profileBNString = "Profile";
+
+  static const String answer = "Answer";
+  static const String stringHowWellDid = "How well did you know this?";
 }
 

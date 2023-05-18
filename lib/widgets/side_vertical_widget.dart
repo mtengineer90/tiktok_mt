@@ -4,8 +4,8 @@ import '../utils/assets.dart';
 import '../utils/colors.dart';
 import '../utils/styles.dart';
 
-class SideIcons extends StatelessWidget {
-  const SideIcons({
+class VerticalWidget extends StatelessWidget {
+  const VerticalWidget({
     super.key,
     required this.avatarIcon,
   });
@@ -37,7 +37,7 @@ class SideIcons extends StatelessWidget {
                   height: 45.sp,
                 ),
                 CustomizedText.sfProCustomized(
-                  '89',
+                  '87',
                   fontWeight: FontWeight.w400,
                   size: 12.sp,
                   color: AppColors.whiteColor,
@@ -61,7 +61,7 @@ class SideIcons extends StatelessWidget {
                   height: 45.sp,
                 ),
                 CustomizedText.sfProCustomized(
-                  '18',
+                  '17',
                   fontWeight: FontWeight.w400,
                   size: 12.sp,
                   color: AppColors.whiteColor,
@@ -73,7 +73,7 @@ class SideIcons extends StatelessWidget {
                   height: 45.sp,
                 ),
                 CustomizedText.sfProCustomized(
-                  '205',
+                  '203',
                   fontWeight: FontWeight.w400,
                   size: 12.sp,
                   color: AppColors.whiteColor,

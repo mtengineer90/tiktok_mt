@@ -1,70 +1,45 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../utils/providers.dart';
+import '../router.dart';
+import '../utils/customized_screen_utils.dart';
+import '../utils/strings.dart';
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-
-      _counter++;
+  Widget build(BuildContext context, WidgetRef ref) {
+    Timer.periodic(const Duration(minutes: 1), (timer) {
+      ref.read(privoderTimer.notifier).state++;
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
+    return MaterialApp.router(
+      title: AppStrings.appTitle,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'sfProCustomized'),
+      routerConfig: AppRouter.router,
+      builder: (context, child) {
+        CustomizedScreenUtils.screenHeight = MediaQuery.of(context).size.height;
+        CustomizedScreenUtils.screenWidth = MediaQuery.of(context).size.width;
+        double designHeight = 812;
+        double designWidth =
+        CustomizedScreenUtils.screenHeight / CustomizedScreenUtils.screenWidth < 1.6 ? 480.0 : 375.0;
+        final designSize = Size(designWidth, designHeight);
+        return ScreenUtilInit(
+          designSize: designSize,
+          builder: (context, _) {
+            return child!;
+          },
+        );
+      },
     );
   }
 }

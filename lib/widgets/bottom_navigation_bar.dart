@@ -6,8 +6,8 @@ import '../utils/colors.dart';
 import '../utils/strings.dart';
 
 
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({
+class CustomizedBottomNavigationBar extends StatelessWidget {
+  const CustomizedBottomNavigationBar({
     super.key,
   });
 

@@ -9,8 +9,8 @@ import '../utils/customized_screen_utils.dart';
 import '../utils/styles.dart';
 
 
-class PlayListContainer extends StatelessWidget {
-  const PlayListContainer({super.key, required this.playlist});
+class PlaylistWidget extends StatelessWidget {
+  const PlaylistWidget({super.key, required this.playlist});
   final String playlist;
   @override
   Widget build(BuildContext context) {
