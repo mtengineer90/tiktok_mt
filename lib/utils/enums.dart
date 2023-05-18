@@ -1,0 +1,3 @@
+enum EnumHomeFragment{
+  following, forYou
+}
